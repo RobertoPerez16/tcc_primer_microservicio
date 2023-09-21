@@ -1,0 +1,31 @@
+{
+  "name": "tcc_primer_microservicio",
+  "version": "1.0.0",
+  "description": "Prueba técnica de desarrollador senior TCC",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "microservices",
+    "endpoint",
+    "docker",
+    "etc"
+  ],
+  "author": "Roberto Pérez",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mssql": "^10.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
