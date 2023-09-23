@@ -38,8 +38,7 @@ const createOrEditResource = async (method, client) => {
 
 const consultMicroServiceSearchClient = async (idNumber) => {
     try {
-        const response = await axios.get(`${ microserviceUrl }search?word=${idNumber}`);
-        console.log(response.data.data);
+        const response = await axios.get(`${ microserviceUrl }search?identificationNumber=${idNumber}`);
         if (response.data && response.data.statusCode === 200) return response.data.data;
         else return [];
     } catch (e) {

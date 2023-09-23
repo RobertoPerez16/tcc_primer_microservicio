@@ -6,6 +6,7 @@ const router = Router();
 router.post('/', async (req, res) => {
     try {
         const { name, identificationType, identificationNumber, gender } = req.body;
+        console.log('body:', req.body);
         if (isEmpty(name)) {
             return customResponse(res, 400, null, 'missing field or fields');
         }
@@ -29,7 +30,7 @@ router.post('/', async (req, res) => {
             gender
         }
         const databaseResult = await ClientService.addClientInformation(client);
-        if (databaseResult instanceof Error) return customResponse(res, 400, null, 'I could not create the resource');
+        if (databaseResult instanceof Error) return customResponse(res, 400, null, databaseResult.message);
         return customResponse(res, 200, client, 'Client created');
 
     } catch (e) {
@@ -42,6 +43,7 @@ router.put('/:id', async (req, res) => {
     try {
         const { name, identificationType, gender } = req.body;
         const { id } = req.params;
+        console.log('body:', req.body);
         if (!id) return customResponse(res, 400, null, 'missing field or fields');
         const dataClient = {
             name,

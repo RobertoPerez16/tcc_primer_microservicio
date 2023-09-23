@@ -5,6 +5,10 @@ const clientService = {};
 
 clientService.addClientInformation = async (client) => {
     try {
+        const info = await consultMicroServiceSearchClient(client.identificationNumber);
+        if (info.length > 0) {
+            return new Error('El usuario ya se encuentra registrado');
+        }
         return await createOrEditResource('Add_client', client);
     } catch (e) {
         console.log('Error: ', e);

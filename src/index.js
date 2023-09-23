@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 app.use(Express.json());
 app.use( Express.urlencoded({ limit: '30mb', extended: false }));
 
-const allowedOrigins = ['http://localhost:5000'];
+const allowedOrigins = ['http://localhost:5000', 'http://localhost:4200'];
 app.use(cors({
     origin: function(origin, callback){
         if(!origin) return callback(null, true);
